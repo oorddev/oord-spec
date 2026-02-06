@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://oord.dev/schemas/inventory_item_v1.schema.json",
+    "title": "Oord Inventory Item v1",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["path", "size", "sha256"],
+    "properties": {
+      "path": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "size": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "sha256": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    }
+  }
+  

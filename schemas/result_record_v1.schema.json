@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://oord.dev/schemas/result_record_v1.schema.json",
+    "title": "Oord Result Record v1",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["object_id", "path", "size", "sha256"],
+    "properties": {
+      "object_id": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      },
+      "path": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "size": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "sha256": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    }
+  }

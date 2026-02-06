@@ -1,0 +1,43 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://oord.dev/schemas/workset_item_v1.schema.json",
+    "title": "Oord Workset Item v1",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["bucket", "key", "size"],
+    "properties": {
+      "bucket": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 255
+      },
+      "key": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048
+      },
+      "version_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "size": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "etag": {
+        "type": "string",
+        "description": "Informational only. Must not be used for integrity verification."
+      },
+      "last_modified": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Informational only."
+      },
+      "storage_class": {
+        "type": "string",
+        "description": "Informational only."
+      }
+    }
+  }
+  
