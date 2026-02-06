@@ -1,4 +1,4 @@
-# Oord Verification Checklist v1
+# Oord Verification Checklist
 
 **Court-Facing, Step-By-Step**
 
@@ -24,7 +24,7 @@ If any required artifact is missing → **INCONCLUSIVE**
 
 ## Step 1 — Schema validity
 
-☐ Validate `manifest.json` against `manifest_v1.schema.json`
+☐ Validate `manifest.json` against `schemas/manifest_v1.schema.json`
 ☐ Confirm no undeclared fields are present
 
 Failure → **FAIL**

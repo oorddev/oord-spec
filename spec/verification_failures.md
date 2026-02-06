@@ -1,8 +1,7 @@
-# Oord Verification Failures v1
+# Oord Verification Failures
 
 **Interpretation of Failure Modes**
 
-**Status:** Locked for v1
 **Audience:** Courts, expert witnesses, regulators
 **Purpose:** Define how verification failures must be interpreted and what conclusions are permitted.
 

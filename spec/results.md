@@ -1,4 +1,4 @@
-# Results v1 (results.jsonl.gz)
+# Results (results.jsonl.gz)
 
 ## Purpose
 

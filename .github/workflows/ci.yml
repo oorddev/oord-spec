@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  spec-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Structure lint
+        run: bash .github/scripts/structure_lint.sh
+
+      - name: Validate manifest schema is valid JSON
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+          jq -e . schemas/manifest_v1.schema.json > /dev/null

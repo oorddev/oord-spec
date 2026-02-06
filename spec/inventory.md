@@ -1,4 +1,4 @@
-# Inventory File v1
+# Inventory File
 
 ## Purpose
 

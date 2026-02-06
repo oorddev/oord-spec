@@ -1,8 +1,7 @@
-# Oord Verification Process v1
+# Oord Verification Process
 
 **Independent, Offline Verification Procedure**
 
-**Status:** Locked for v1
 **Audience:** Courts, expert witnesses, regulators, auditors
 **Goal:** Describe exactly how a third party verifies an Oord seal **without trusting the custodian or Oord**.
 

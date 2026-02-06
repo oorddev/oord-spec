@@ -1,8 +1,7 @@
-# Oord Manifest v1
+# Oord Manifest
 
 **Human-Readable Specification**
 
-**Status:** Locked for v1
 **Audience:** Courts, regulators, expert witnesses, auditors
 **Purpose:** Explain—clearly and defensibly—what a manifest is, what it proves, and what it does *not* prove.
 
@@ -251,7 +250,7 @@ Every manifest declares an outcome:
 Only `FINAL` manifests may be represented as court-grade dataset commitments.
 
 A manifest declaring `sealing_outcome = FINAL` that violates any FINAL
-constraints defined in `manifest_v1.schema.json` is invalid by definition
+constraints defined in `schemas/manifest_v1.schema.json` is invalid by definition
 and MUST be rejected by verifiers.
 
 The manifest explicitly records why finality was or was not achieved.

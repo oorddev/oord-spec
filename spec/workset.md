@@ -1,4 +1,4 @@
-# Work Set File (WSF) v1
+# Work Set File (WSF) 
 
 ## Purpose
 
