@@ -22,14 +22,15 @@
     "errors"
   ],
   "additionalProperties": false,
-
   "properties": {
-    "spec_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "spec_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
     "verification_profile": { "const": "public_offline_v1" },
     "manifest_version": { "const": "manifest_v1" },
     "seal_id": { "type": "string", "minLength": 8 },
     "created_at": { "type": "string" },
-
     "dataset_locator": {
       "type": "object",
       "additionalProperties": false,
@@ -40,11 +41,17 @@
         "description": { "type": "string" }
       }
     },
-
     "algorithms": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["hash", "leaf_encoding", "merkle_node_encoding", "canonicalization", "signature", "timestamp"],
+      "required": [
+        "hash",
+        "leaf_encoding",
+        "merkle_node_encoding",
+        "canonicalization",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "hash": { "const": "sha256" },
         "leaf_encoding": { "const": "oord-leaf-v1" },
@@ -54,20 +61,26 @@
         "timestamp": { "const": "rfc3161" }
       }
     },
-
     "sealing_configuration": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["chunk_size_leaves", "ordering", "path_normalization", "reliability_profile", "finalization_policy"],
+      "required": [
+        "chunk_size_leaves",
+        "ordering",
+        "path_normalization",
+        "reliability_profile",
+        "finalization_policy"
+      ],
       "properties": {
         "chunk_size_leaves": { "type": "integer", "minimum": 1 },
         "ordering": { "const": "object_id_path_size_sha256" },
         "path_normalization": { "const": "posix_nfc_no_traversal" },
         "reliability_profile": { "enum": ["R1", "R2", "R3"] },
-        "finalization_policy": { "const": "final_requires_full_coverage_and_timestamp" }
+        "finalization_policy": {
+          "const": "final_requires_full_coverage_and_timestamp"
+        }
       }
     },
-
     "workset": {
       "type": "object",
       "additionalProperties": false,
@@ -81,8 +94,15 @@
           "additionalProperties": false,
           "required": ["type", "details"],
           "properties": {
-            "type": { "enum": ["storage_snapshot_id", "s3_inventory", "versioned_listing", "live_list_best_effort"] },
-            "details": { 
+            "type": {
+              "enum": [
+                "storage_snapshot_id",
+                "s3_inventory",
+                "versioned_listing",
+                "live_list_best_effort"
+              ]
+            },
+            "details": {
               "type": "object",
               "minProperties": 1,
               "description": "For s3_inventory: {manifest_key, manifest_sha256}. For storage_snapshot_id: {snapshot_id, timestamp}. For versioned_listing: {source_description}. For live_list_best_effort: {enumeration_start_time, enumeration_end_time}."
@@ -91,11 +111,17 @@
         }
       }
     },
-
     "inventory": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["file", "sha256", "record_count", "file_count", "total_bytes", "chunk_count"],
+      "required": [
+        "file",
+        "sha256",
+        "record_count",
+        "file_count",
+        "total_bytes",
+        "chunk_count"
+      ],
       "properties": {
         "file": { "const": "inventory.jsonl.gz" },
         "sha256": { "$ref": "#/$defs/sha256hex" },
@@ -105,7 +131,6 @@
         "chunk_count": { "type": "integer", "minimum": 0 }
       }
     },
-
     "exclusions": {
       "type": "object",
       "additionalProperties": false,
@@ -119,7 +144,15 @@
             "additionalProperties": false,
             "required": ["type", "name", "sha256"],
             "properties": {
-              "type": { "enum": ["path_glob", "domain_list", "id_list", "policy_text", "other"] },
+              "type": {
+                "enum": [
+                  "path_glob",
+                  "domain_list",
+                  "id_list",
+                  "policy_text",
+                  "other"
+                ]
+              },
               "name": { "type": "string", "minLength": 1 },
               "sha256": { "$ref": "#/$defs/sha256hex" },
               "description": { "type": "string" }
@@ -128,11 +161,16 @@
         }
       }
     },
-
     "results_summary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["file", "sha256", "record_count", "missing_count", "conflict_count"],
+      "required": [
+        "file",
+        "sha256",
+        "record_count",
+        "missing_count",
+        "conflict_count"
+      ],
       "properties": {
         "file": { "const": "results.jsonl.gz" },
         "sha256": { "$ref": "#/$defs/sha256hex" },
@@ -141,7 +179,6 @@
         "conflict_count": { "type": "integer", "minimum": 0 }
       }
     },
-
     "roots": {
       "type": "object",
       "additionalProperties": false,
@@ -153,7 +190,6 @@
         "chunk_roots_sha256": { "$ref": "#/$defs/sha256hex" }
       }
     },
-
     "timestamps": {
       "type": "object",
       "additionalProperties": false,
@@ -177,7 +213,6 @@
         }
       ]
     },
-
     "signatures": {
       "type": "object",
       "additionalProperties": false,
@@ -190,7 +225,6 @@
         "manifest_sig_b64": { "type": "string", "minLength": 16 }
       }
     },
-
     "toolchain": {
       "type": "object",
       "additionalProperties": false,
@@ -209,7 +243,6 @@
         }
       }
     },
-
     "outcome": {
       "type": "object",
       "additionalProperties": false,
@@ -219,7 +252,6 @@
         "finality_reason": { "type": "string" }
       }
     },
-
     "errors": {
       "type": "object",
       "additionalProperties": false,
@@ -231,14 +263,13 @@
       }
     }
   },
-
   "allOf": [
     {
       "if": {
-        "properties": { 
-          "outcome": { 
-            "properties": { "sealing_outcome": { "const": "FINAL" } } 
-          } 
+        "properties": {
+          "outcome": {
+            "properties": { "sealing_outcome": { "const": "FINAL" } }
+          }
         }
       },
       "then": {
@@ -251,16 +282,43 @@
             "required": ["missing_count", "conflict_count"]
           },
           "timestamps": {
-            "properties": {
-              "status": { "const": "ok" }
-            },
+            "properties": { "status": { "const": "ok" } },
             "required": ["status"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "algorithms": {
+            "properties": { "signature": { "const": "ed25519" } }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "signatures": { "properties": { "suite": { "const": "ed25519" } } }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "algorithms": {
+            "properties": { "signature": { "const": "rsa-pss-sha256" } }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "signatures": {
+            "properties": { "suite": { "const": "rsa-pss-sha256" } }
           }
         }
       }
     }
   ],
-
   "$defs": {
     "sha256hex": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "sha256hex32bytes": { "type": "string", "pattern": "^[a-f0-9]{64}$" }

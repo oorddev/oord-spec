@@ -3,7 +3,7 @@
 
 ## Name
 
-`public_offline`
+`public_offline_v1`
 
 ## Claim (tight)
 

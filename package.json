@@ -1,0 +1,24 @@
+{
+  "name": "oord-spec",
+  "version": "1.0.0",
+  "description": "Oord protocol + schema + test-vector skeleton for **court-grade, offline-verifiable** AI dataset sealing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oorddev/oord-spec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oorddev/oord-spec/issues"
+  },
+  "homepage": "https://github.com/oorddev/oord-spec#readme",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

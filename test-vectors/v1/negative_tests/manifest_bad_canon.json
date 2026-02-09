@@ -1,0 +1,96 @@
+{
+    "spec_version": "1.0.0",
+    "verification_profile": "public_offline_v1",
+    "manifest_version": "manifest_v1",
+    "seal_id": "seal_00000005",
+    "created_at": "2026-02-07T00:00:00Z",
+  
+    "algorithms": {
+      "hash": "sha256",
+      "leaf_encoding": "oord-leaf-v1",
+      "merkle_node_encoding": "oord-merkle-v1",
+      "canonicalization": "RFC7493",
+      "signature": "ed25519",
+      "timestamp": "rfc3161"
+    },
+  
+    "sealing_configuration": {
+      "chunk_size_leaves": 1048576,
+      "ordering": "object_id_path_size_sha256",
+      "path_normalization": "posix_nfc_no_traversal",
+      "reliability_profile": "R1",
+      "finalization_policy": "final_requires_full_coverage_and_timestamp"
+    },
+  
+    "workset": {
+      "file": "workset.jsonl.gz",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "record_count": 1,
+      "source": {
+        "type": "live_list_best_effort",
+        "details": { "enumeration_start_time": "2026-02-07T00:00:00Z" }
+      }
+    },
+  
+    "inventory": {
+      "file": "inventory.jsonl.gz",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "record_count": 1,
+      "file_count": 1,
+      "total_bytes": 123,
+      "chunk_count": 1
+    },
+  
+    "exclusions": {
+      "exclusion_mode": "required",
+      "exclusion_objects": [
+        {
+          "type": "policy_text",
+          "name": "exclusions_policy_v1.txt",
+          "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "description": "placeholder"
+        }
+      ]
+    },
+  
+    "results_summary": {
+      "file": "results.jsonl.gz",
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "record_count": 1,
+      "missing_count": 0,
+      "conflict_count": 0
+    },
+  
+    "roots": {
+      "dataset_root_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    },
+  
+    "timestamps": {
+      "status": "not_attempted",
+      "attempts": 0
+    },
+  
+    "signatures": {
+      "suite": "ed25519",
+      "signing_payload_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "manifest_sig_b64": "ZmFrZS1zaWduYXR1cmU="
+    },
+  
+    "toolchain": {
+      "oord_seal_version": "0.0.0",
+      "oord_verify_version": "0.0.0",
+      "openssl_version_min": "3.0.0"
+    },
+  
+    "outcome": {
+      "sealing_outcome": "NON_FINAL",
+      "finality_reason": "schema-fixture"
+    },
+  
+    "errors": {
+      "file": "errors.jsonl",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "error_count": 0
+    }
+  }
+  

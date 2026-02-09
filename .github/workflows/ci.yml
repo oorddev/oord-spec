@@ -19,3 +19,22 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq
           jq -e . schemas/manifest_v1.schema.json > /dev/null
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install schema test deps
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: "Schema tests (Task 0.2: algorithms + profile)"
+        env:
+          SCHEMA_PATH: schemas/manifest_v1.schema.json
+          PASS_FILES_JSON: '["test-vectors/v1/negative_tests/manifest_ok_ed25519.json","test-vectors/v1/negative_tests/manifest_ok_rsapss.json"]'
+          FAIL_FILES_JSON: '["test-vectors/v1/negative_tests/manifest_bad_hash.json","test-vectors/v1/negative_tests/manifest_bad_sig.json","test-vectors/v1/negative_tests/manifest_bad_canon.json","test-vectors/v1/negative_tests/manifest_bad_timestamp.json","test-vectors/v1/negative_tests/manifest_bad_profile.json","test-vectors/v1/negative_tests/manifest_bad_sig_mismatch.json"]'
+        run: bash .github/scripts/schema_tests.sh
